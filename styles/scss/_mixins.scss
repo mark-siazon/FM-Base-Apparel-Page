@@ -1,0 +1,16 @@
+.d-none{
+  display: none;
+}
+
+$placeholder: ('::-webkit-input-placeholder', ':-moz-placeholder', 
+'::-moz-placeholder', ':-ms-input-placeholder', '::input-placeholder', 
+'::placeholder');
+@each $selector in $placeholder {
+  #{$selector} {
+    color: rgba(206, 151, 151, 0.60);
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: rgba(206, 151, 151, 0.40);
+    font-size: 14px;
+  }
+}
+// https://wpshout.com/snippets/change-placeholder-styles-html-inputs-with-css/

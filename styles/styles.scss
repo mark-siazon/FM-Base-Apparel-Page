@@ -2,43 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 @import 'scss/_variables.scss'; // for variables
+@import 'scss/_media.scss';  // for component-specific styles
 @import 'scss/_mixins.scss'; // for mixins
 @import 'scss/_global.scss'; // for global styles
 @import 'scss/_components.scss';  // for component-specific styles
-@import 'scss/_media.scss';  // for component-specific styles
 @import 'scss/_typography.scss'; // for typography styles
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "logo"
-    "image"
-    "text-ctn";
-}
-
-/* Desktop Layout */
-@media (min-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas:
-      "logo image"
-      "text-ctn image";
-
-    max-width: 830px;
-    max-height: 800px; /* Full height layout */
-  }
-}
-
-.logo-ctn {
-  grid-area: logo;
-}
-
-.img-ctn {
-  grid-area: image;
-}
-
-.text-ctn {
-  grid-area: text-ctn;
-}

@@ -1,32 +1,46 @@
+section{
+  text-align: center;
+  @include respond-to(small){
+    text-align: left;
+  }
+}
+
 h1{
   text-transform: uppercase;
-  color: #413A3A;
-  text-align: center;
-  font-size: 43px;
+  color: $dark-grayish-red;
+  font-size: px-to-rem(43);
   font-weight: 400;
   letter-spacing: 8.6px;
-
+  @include respond-to(small){
+    font-size: px-to-rem(64);
+  }
+  
   span{
-    color: #CE9797;
-    text-align: center;
-    font-size: 42px;
+    color: $desaturated-red;
+    font-size: px-to-rem(42);
     font-weight: 300;
     letter-spacing: 10.5px;
+    @include respond-to(small){
+      font-size: px-to-rem(64);
+    }
   }
 }
 
 h1+p{
   align-self: stretch;
-  color: #CE9797;
-  font-size: 16px;
-  font-weight: 600;
+  color: $desaturated-red;
+  font-size: px-to-rem(16);
+  font-weight: 400;
   line-height: 128%; /* 20.48px */
   letter-spacing: -0.8px;
+  @include respond-to(small){
+    font-size: px-to-rem(17);
+    max-width: 426px;
+  }
 }
 
 label::after{
   color: #EE8C8C;
-  font-size: 13px;
+  font-size: px-to-rem(13);
   opacity: 0.8;
-  font-weight: 500;
 }

@@ -1,0 +1,134 @@
+main.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "logo"
+    "image"
+    "text-ctn";
+    min-width: 320px;
+    max-width: 375px;
+    max-height: 800px;  
+  /* Desktop Layout */
+  @include respond-to(small){
+    grid-template-columns: 1fr 1fr span;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "logo image"
+      "text-ctn image";
+    // max-width: 830px;
+    width: 100vw;
+    max-width: 1440px;
+    max-height: 800px; /* Full height layout */
+  }
+}
+
+.logo-ctn { 
+  grid-area: logo;
+  max-width: 100%;
+  padding: 30px 37px;
+  @include respond-to(small){
+    padding: 65px 30px 15px;  
+    margin-left: 110px;
+  }
+}
+
+
+.img-ctn { 
+  grid-area: image; 
+  height: fit-content;
+}
+
+picture img{
+  max-width: 500px;
+  display: block;
+
+  @include respond-to(medium){
+    max-height: 100vmin;
+  }
+}
+
+
+.text-ctn { 
+  grid-area: text-ctn;
+  margin: 66px 29.5px 91px 29.5px ;
+  @extend %d-flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include respond-to(small){
+    max-width: 447px;
+    margin-left: 140px;
+  }
+}
+
+
+
+label{
+  // margin: auto;
+  align-self: stretch;
+  height: 50px;
+  min-width: 316px;
+  @include respond-to(small){
+    max-width: 95%;
+  }
+  @extend %d-flex;
+  @extend %align-center;
+  justify-content: space-between;
+
+  border-radius: 30px;
+  border: 1px solid rgba(206, 151, 151, 0.40);
+  position: relative;
+
+  &::after{
+    content: "Please provide a valid email";
+    position: absolute;
+    top: 125%;
+    left: 15%;
+  }
+}
+
+input[type="email"]{
+  border: unset;
+  height: 95%;
+  border-radius: 30px ;
+  overflow: clip;
+  width: 100%;
+  padding-left: 24px;
+  cursor: text;
+
+  &:focus {
+    outline:none; 
+    border:1px solid $desaturated-red;
+    -webkit-box-shadow: 0px 0px 5px  $desaturated-red;
+    box-shadow: 0px 0px 5px  $desaturated-red;
+  }
+}
+
+.danger-btn{
+  position: absolute;
+  right: 24%;
+}
+
+.submit-btn{
+  @extend %d-flex;
+  @extend %align-center;
+  @extend %justify-center;
+  width: 64px;
+  height: 50px;
+  gap: 10px;
+  flex-shrink: 0;
+  border: unset;
+  border-radius: 30px;
+  background: linear-gradient(135deg, $gradient-2);
+  box-shadow: 0px 10px 30px 0px rgba(249, 98, 98, 0.40);
+  
+  @include respond-to(small){ width: 90px;}
+
+  &:hover{
+    border-radius: 30px;
+    background: #F9D1D2;
+    box-shadow: 0px 10px 30px 0px rgba(206, 151, 151, 0.80);
+    cursor: pointer;
+    transition: box-shadow 0.25s ease-in;
+  }
+}

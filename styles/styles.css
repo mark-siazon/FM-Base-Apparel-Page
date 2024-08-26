@@ -45,6 +45,18 @@
   font-size: 14px;
 }
 
+.submit-btn, label, .text-ctn, body {
+  display: flex;
+}
+
+.submit-btn, label, body {
+  align-items: center;
+}
+
+.submit-btn, body {
+  justify-content: center;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -53,43 +65,90 @@
 
 body {
   font-family: "Josefin Sans", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
+  font-size: 16px;
+  background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+}
+@media only screen and (min-width: 720px) {
+  body {
+    align-items: baseline;
+    overflow-x: clip;
+  }
 }
 
-main {
+main.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "logo" "image" "text-ctn";
   min-width: 320px;
   max-width: 375px;
   max-height: 800px;
+  /* Desktop Layout */
 }
-
-picture img {
-  display: block;
+@media only screen and (min-width: 720px) {
+  main.grid-container {
+    grid-template-columns: 1fr 1fr span;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "logo image" "text-ctn image";
+    width: 100vw;
+    max-width: 1440px;
+    max-height: 800px; /* Full height layout */
+  }
 }
 
 .logo-ctn {
+  grid-area: logo;
   max-width: 100%;
-  padding: 30px 0 30px 37px;
+  padding: 30px 37px;
+}
+@media only screen and (min-width: 720px) {
+  .logo-ctn {
+    padding: 65px 30px 15px;
+    margin-left: 110px;
+  }
 }
 
-section {
-  text-align: center;
+.img-ctn {
+  grid-area: image;
+  height: fit-content;
+}
+
+picture img {
+  max-width: 500px;
+  display: block;
+}
+@media only screen and (min-width: 900px) {
+  picture img {
+    max-height: 100vmin;
+  }
+}
+
+.text-ctn {
+  grid-area: text-ctn;
+  margin: 66px 29.5px 91px 29.5px;
+  flex-direction: column;
+  gap: 30px;
+}
+@media only screen and (min-width: 720px) {
+  .text-ctn {
+    max-width: 447px;
+    margin-left: 140px;
+  }
 }
 
 label {
-  margin: auto;
   align-self: stretch;
   height: 50px;
-  padding-left: 24px;
-  width: 316px;
-  display: flex;
+  min-width: 316px;
   justify-content: space-between;
-  align-items: center;
   border-radius: 30px;
   border: 1px solid rgba(206, 151, 151, 0.4);
   position: relative;
+}
+@media only screen and (min-width: 720px) {
+  label {
+    max-width: 95%;
+  }
 }
 label::after {
   content: "Please provide a valid email";
@@ -100,84 +159,98 @@ label::after {
 
 input[type=email] {
   border: unset;
-  height: 70%;
+  height: 95%;
+  border-radius: 30px;
+  overflow: clip;
+  width: 100%;
+  padding-left: 24px;
+  cursor: text;
+}
+input[type=email]:focus {
+  outline: none;
+  border: 1px solid hsl(0, 36%, 70%);
+  -webkit-box-shadow: 0px 0px 5px hsl(0, 36%, 70%);
+  box-shadow: 0px 0px 5px hsl(0, 36%, 70%);
+}
+
+.danger-btn {
+  position: absolute;
+  right: 24%;
 }
 
 .submit-btn {
-  display: flex;
   width: 64px;
   height: 50px;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
   flex-shrink: 0;
   border: unset;
   border-radius: 30px;
-  background: linear-gradient(135deg, #F8BFBF 22.77%, #EE8C8C 86.43%);
+  background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
   box-shadow: 0px 10px 30px 0px rgba(249, 98, 98, 0.4);
+}
+@media only screen and (min-width: 720px) {
+  .submit-btn {
+    width: 90px;
+  }
 }
 .submit-btn:hover {
   border-radius: 30px;
   background: #F9D1D2;
   box-shadow: 0px 10px 30px 0px rgba(206, 151, 151, 0.8);
+  cursor: pointer;
+  transition: box-shadow 0.25s ease-in;
+}
+
+section {
+  text-align: center;
+}
+@media only screen and (min-width: 720px) {
+  section {
+    text-align: left;
+  }
 }
 
 h1 {
   text-transform: uppercase;
-  color: #413A3A;
-  text-align: center;
-  font-size: 43px;
+  color: hsl(0, 6%, 24%);
+  font-size: 2.6875rem;
   font-weight: 400;
   letter-spacing: 8.6px;
 }
+@media only screen and (min-width: 720px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
 h1 span {
-  color: #CE9797;
-  text-align: center;
-  font-size: 42px;
+  color: hsl(0, 36%, 70%);
+  font-size: 2.625rem;
   font-weight: 300;
   letter-spacing: 10.5px;
+}
+@media only screen and (min-width: 720px) {
+  h1 span {
+    font-size: 4rem;
+  }
 }
 
 h1 + p {
   align-self: stretch;
-  color: #CE9797;
-  font-size: 16px;
-  font-weight: 600;
+  color: hsl(0, 36%, 70%);
+  font-size: 1rem;
+  font-weight: 400;
   line-height: 128%; /* 20.48px */
   letter-spacing: -0.8px;
+}
+@media only screen and (min-width: 720px) {
+  h1 + p {
+    font-size: 1.0625rem;
+    max-width: 426px;
+  }
 }
 
 label::after {
   color: #EE8C8C;
-  font-size: 13px;
+  font-size: 0.8125rem;
   opacity: 0.8;
-  font-weight: 500;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "logo" "image" "text-ctn";
-}
-
-/* Desktop Layout */
-@media (min-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: "logo image" "text-ctn image";
-    max-width: 830px;
-    max-height: 800px; /* Full height layout */
-  }
-}
-.logo-ctn {
-  grid-area: logo;
-}
-
-.img-ctn {
-  grid-area: image;
-}
-
-.text-ctn {
-  grid-area: text-ctn;
 }/*# sourceMappingURL=styles.css.map */

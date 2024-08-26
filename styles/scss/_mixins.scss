@@ -13,4 +13,19 @@ $placeholder: ('::-webkit-input-placeholder', ':-moz-placeholder',
     font-size: 14px;
   }
 }
-// https://wpshout.com/snippets/change-placeholder-styles-html-inputs-with-css/
+@function px-to-rem($rem) {
+  $remValue: calc($rem / 16); // base font size: 16px
+  @return #{$remValue}rem; 
+}
+
+%d-flex{
+  display: flex;
+}
+
+%align-center{
+  align-items: center;
+}
+
+%justify-center{
+  justify-content: center;
+}

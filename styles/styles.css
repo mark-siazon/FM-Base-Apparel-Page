@@ -76,6 +76,13 @@ body {
   }
 }
 
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0.5;
+}
+
 main.grid-container {
   display: grid;
   grid-template-columns: 1fr;

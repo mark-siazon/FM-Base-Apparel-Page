@@ -19,8 +19,18 @@ body{
 }
 
 footer{
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  opacity: 0.5;
+  display: none;
+  z-index: 0;
+  font-size: smaller;
+  
+  @include respond-to(large){
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0.4;  }
+
+  a{
+    color: $desaturated-red;
+  }
 }

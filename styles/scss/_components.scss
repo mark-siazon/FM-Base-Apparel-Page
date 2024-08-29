@@ -15,10 +15,9 @@ main.grid-container {
     grid-template-areas:
       "logo image"
       "text-ctn image";
-    // max-width: 830px;
     width: 100vw;
     max-width: 1440px;
-    max-height: 800px; /* Full height layout */
+    max-height: 830px; /* Full height layout */
   }
 }
 
@@ -28,7 +27,7 @@ main.grid-container {
   padding: 30px 37px;
   @include respond-to(small){
     padding: 65px 30px 15px;  
-    margin-left: 110px;
+    margin-left: clamp(80px,7vw,140px);
   }
 }
 
@@ -41,9 +40,15 @@ main.grid-container {
 picture img{
   max-width: 500px;
   display: block;
+  
+  @include respond-to(small){
+    min-height: 800px;
+  }
 
   @include respond-to(medium){
-    max-height: 100vmin;
+    min-height: 700px;
+    height: 100vh;
+    max-height: 1024px;
   }
 }
 
@@ -57,7 +62,7 @@ picture img{
 
   @include respond-to(small){
     max-width: 447px;
-    margin-left: 140px;
+    margin-left: clamp(100px,9vw,160px);
   }
 }
 
@@ -80,10 +85,19 @@ label{
   position: relative;
 
   &::after{
-    content: "Please provide a valid email";
+    // content: "Please provide a valid email";
     position: absolute;
     top: 125%;
     left: 15%;
+  }
+
+  &.error::after {
+    content: "Please provide a valid email";
+  }
+
+  &.success::after {
+    content: "Email address has been sent successfully";
+    color: rgb(82, 219, 82);
   }
 }
 

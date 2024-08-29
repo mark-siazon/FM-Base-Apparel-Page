@@ -18,14 +18,6 @@ $placeholder: ('::-webkit-input-placeholder', ':-moz-placeholder',
   @return #{$remValue}rem; 
 }
 
-%d-flex{
-  display: flex;
-}
-
-%align-center{
-  align-items: center;
-}
-
-%justify-center{
-  justify-content: center;
-}
+%d-flex{ display: flex; }
+%align-center{ align-items: center; }
+%justify-center{ justify-content: center; }

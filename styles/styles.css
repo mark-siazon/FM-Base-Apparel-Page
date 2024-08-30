@@ -77,10 +77,21 @@ body {
 }
 
 footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  opacity: 0.5;
+  display: none;
+  z-index: 0;
+  font-size: smaller;
+}
+@media only screen and (min-width: 1200px) {
+  footer {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0.4;
+  }
+}
+footer a {
+  color: hsl(0, 36%, 70%);
 }
 
 main.grid-container {
@@ -99,7 +110,7 @@ main.grid-container {
     grid-template-areas: "logo image" "text-ctn image";
     width: 100vw;
     max-width: 1440px;
-    max-height: 800px; /* Full height layout */
+    max-height: 830px; /* Full height layout */
   }
 }
 
@@ -111,7 +122,7 @@ main.grid-container {
 @media only screen and (min-width: 720px) {
   .logo-ctn {
     padding: 65px 30px 15px;
-    margin-left: 110px;
+    margin-left: clamp(80px, 7vw, 140px);
   }
 }
 
@@ -124,9 +135,16 @@ picture img {
   max-width: 500px;
   display: block;
 }
+@media only screen and (min-width: 720px) {
+  picture img {
+    min-height: 800px;
+  }
+}
 @media only screen and (min-width: 900px) {
   picture img {
-    max-height: 100vmin;
+    min-height: 700px;
+    height: 100vh;
+    max-height: 1024px;
   }
 }
 
@@ -139,7 +157,7 @@ picture img {
 @media only screen and (min-width: 720px) {
   .text-ctn {
     max-width: 447px;
-    margin-left: 140px;
+    margin-left: clamp(100px, 9vw, 160px);
   }
 }
 
@@ -158,10 +176,16 @@ label {
   }
 }
 label::after {
-  content: "Please provide a valid email";
   position: absolute;
   top: 125%;
   left: 15%;
+}
+label.error::after {
+  content: "Please provide a valid email";
+}
+label.success::after {
+  content: "Email address has been sent successfully";
+  color: rgb(82, 219, 82);
 }
 
 input[type=email] {

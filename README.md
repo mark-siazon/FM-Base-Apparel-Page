@@ -1,6 +1,6 @@
 # Frontend Mentor - Base Apparel coming soon page
 
-This is a solution to the [Base Apparel coming soon page coding challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/).
+This is a solution to the [Base Apparel coming soon page coding challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/base-apparel-coming-soon-page-5d46b47f8db8a7063f9331a0).
 
 Frontend Mentor challenges help improve skills by building realistic projects.
 
@@ -65,8 +65,8 @@ All viewports were included (except for the 4k view), in case the observer wishe
 
 ### Links:
 
-- Live Site URL: [Website Link - Click Me](https://mark-siazon.github.io/)
-- Solution URL: [FrontEndMentor - Click Me](https://www.frontendmentor.io/solutions/)
+- Live Site URL: [Website Link - Click Me](https://mark-siazon.github.io/FM-Base-Apparel-Page/)
+- Solution URL: [FrontEndMentor - Click Me](https://www.frontendmentor.io/solutions/base-apparel-page-responsive-mobile-first-js-flexboxandgrid-scss-XSd51tHVG1)
 
 ## My process:
 
@@ -76,15 +76,12 @@ All viewports were included (except for the 4k view), in case the observer wishe
 - Vanila Javascript
 - Mobile-First Approach
   - Grid Layout + Flexbox
+- Responsive Web Design
 - SASS/SCSS
 
 ### What I learned:
 
 Recap over some of the major learnings while working through this project:
-
-#### General things I've learned:
-
-- TBA...
 
 <hr>
 
